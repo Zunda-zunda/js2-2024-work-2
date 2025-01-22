@@ -1,7 +1,7 @@
 async function getWeather() {
   const city = document.getElementById('cityInput').value.trim();
   const apiKey = '06ee01deb2a373de827e600ee025ba6c'; // OpenWeather APIキーをここに入力してください
-  const geoApiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
+  const geoApiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
   const weatherInfo = document.getElementById('weatherInfo');
 
   // 都市名が入力されていない場合の処理
@@ -32,7 +32,7 @@ async function getWeather() {
       const weatherData = await weatherResponse.json();
 
       // 3. 5日間の天気予報を取得
-      const forecastApiUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=ja`;
+      const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=ja`;
       const forecastResponse = await fetch(forecastApiUrl);
       if (!forecastResponse.ok) {
           throw new Error('天気予報の取得に失敗しました');
